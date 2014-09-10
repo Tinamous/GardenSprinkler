@@ -13,6 +13,8 @@ namespace GardenSprinkler.Services
     /// </summary>
     class TinamousService : IInternetOfThingsService
     {
+        public event EventHandler WaterRequested;
+
         private const string UserName = "Sprinkler";
         private const string Password = "Passw0rd";
         private const string UrlBase = "http://demo.Tinamous.com/Api/V1/";
@@ -23,6 +25,16 @@ namespace GardenSprinkler.Services
             HttpRequest request = HttpHelper.CreateHttpGetRequest(url);
             request.ResponseReceived += ResponseReceived;
             request.SendRequest();
+        }
+
+        public void Start()
+        {
+            // Nothing to do.
+        }
+
+        public void Stop()
+        {
+            //
         }
 
         public void PostMeasurements(Measurement measurement)

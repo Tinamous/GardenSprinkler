@@ -58,7 +58,7 @@ namespace GardenSprinkler.Services
             // Post measurements only every xth measurement
             // allows for rapid internal update without overloading 
             // web service.
-            if (_postCount >= 10)
+            if (_postCount >= 2)
             {
                 try
                 {

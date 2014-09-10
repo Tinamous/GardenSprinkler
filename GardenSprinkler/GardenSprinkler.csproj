@@ -45,6 +45,7 @@
     <Compile Include="Interfaces\IMeasurementService.cs" />
     <Compile Include="Interfaces\IInternetOfThingsService.cs" />
     <Compile Include="Interfaces\IWateringService.cs" />
+    <Compile Include="Services\TinamousMqttService.cs" />
     <Compile Include="Services\MeasurementService.cs" />
     <Compile Include="Services\TinamousService.cs" />
     <Compile Include="Program.generated.cs">
@@ -94,12 +95,16 @@
     <Reference Include="GTM.GHIElectronics.USBClientDP, Version=4.3.3.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="M2Mqtt">
+      <HintPath>..\packages\M2Mqtt.3.6\lib\netmf43\M2Mqtt.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.SPOT.Graphics" />
     <Reference Include="Microsoft.SPOT.Hardware" />
     <Reference Include="Microsoft.SPOT.Native" />
     <Reference Include="Microsoft.SPOT.Net" />
     <Reference Include="Microsoft.SPOT.TinyCore" />
     <Reference Include="mscorlib" />
+    <Reference Include="System" />
     <Reference Include="System.IO" />
   </ItemGroup>
   <ItemGroup>
@@ -110,6 +115,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Program.gadgeteer">
       <Generator>GadgeteerFileCodeGenerator</Generator>
       <LastGenOutput>Program.generated.cs</LastGenOutput>
