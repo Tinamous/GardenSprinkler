@@ -20,9 +20,9 @@ namespace GardenSprinkler
             Debug.Print("Program Started");
 
             //var tinamousService = new TinamousService();
-            //_tinamousService = new TinamousMqttService();
+            _tinamousService = new TinamousMqttService();
             _tinamousService = new NullIoTService();
-            _tinamousService.WaterRequested += tinamousService_WaterRequested;
+            //_tinamousService.WaterRequested += tinamousService_WaterRequested;
 
             SetupEthernet();
 
@@ -71,11 +71,12 @@ namespace GardenSprinkler
                 ethernetENC28.UseThisNetworkInterface();
 
                 Debug.Print("*** Network connected!!! ***");
-                Debug.Print(ethernetENC28.NetworkInterface.IPAddress);
-                Debug.Print(ethernetENC28.NetworkInterface.SubnetMask);
+                Debug.Print("IP:" + ethernetENC28.NetworkInterface.IPAddress);
+                Debug.Print("Subnet: " + ethernetENC28.NetworkInterface.SubnetMask);
                 Debug.Print(ethernetENC28.NetworkInterface.CableConnected ? "Cable Connected" : "No cable");
-                Debug.Print(ethernetENC28.NetworkInterface.DnsAddresses[0]);
-                Debug.Print(ethernetENC28.NetworkInterface.NetworkInterfaceType.ToString());
+                Debug.Print("DNS: " + ethernetENC28.NetworkInterface.DnsAddresses[0]);
+                Debug.Print("Inter Type: " + ethernetENC28.NetworkInterface.NetworkInterfaceType.ToString());
+                Debug.Print("Gateway: " + ethernetENC28.NetworkInterface.GatewayAddress);
                 Debug.Print(ethernetENC28.NetworkInterface.NetworkIsAvailable ? "Network available" : "*** Network is not available ***");
 
                 // Allow the network service to start when the network is up.
