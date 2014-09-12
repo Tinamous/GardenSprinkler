@@ -4,6 +4,6 @@ namespace GardenSprinkler.Interfaces
 {
     public interface IMeasurementService
     {
-        Measurement GetCurrentMeasurement();
+        Measurement CurrentMeasurement { get; }
     }
 }

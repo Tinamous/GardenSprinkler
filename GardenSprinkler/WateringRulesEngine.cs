@@ -45,7 +45,7 @@ namespace GardenSprinkler
 
         private bool ShouldWater()
         {
-            Measurement measurement = _measurementService.GetCurrentMeasurement();
+            Measurement measurement = _measurementService.CurrentMeasurement;
 
             if (measurement == null)
             {

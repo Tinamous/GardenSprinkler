@@ -19,7 +19,10 @@ namespace GardenSprinkler.Services
         private Measurement _currentMeasurement;
         private int _postCount;
 
-        public MeasurementService(Moisture moistureSensor, LightSense lightSensor, IInternetOfThingsService internetOfThingsService)
+        public MeasurementService(
+            Moisture moistureSensor, 
+            LightSense lightSensor, 
+            IInternetOfThingsService internetOfThingsService)
         {
             _moistureSensor = moistureSensor;
             _lightSensor = lightSensor;
@@ -31,9 +34,12 @@ namespace GardenSprinkler.Services
             _measurementsTimer.Start();
         }
 
-        public Measurement GetCurrentMeasurement()
+        public Measurement CurrentMeasurement
         {
-            return _currentMeasurement;
+            get
+            {
+                return _currentMeasurement;
+            }
         }
 
         void measurementsTimer_Tick(Timer timer)
@@ -58,15 +64,11 @@ namespace GardenSprinkler.Services
             // Post measurements only every xth measurement
             // allows for rapid internal update without overloading 
             // web service.
-            if (_postCount >= 2)
+            if (_postCount >= 10)
             {
                 try
                 {
-                    var currentMeasurement = GetCurrentMeasurement();
-                    if (currentMeasurement != null)
-                    {
-                        _internetOfThingsService.PostMeasurements(currentMeasurement);
-                    }
+                    _internetOfThingsService.PostMeasurements(CurrentMeasurement);
                 }
                 catch (Exception ex)
                 {
