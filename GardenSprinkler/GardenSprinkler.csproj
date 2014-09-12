@@ -45,6 +45,7 @@
     <Compile Include="Interfaces\IMeasurementService.cs" />
     <Compile Include="Interfaces\IInternetOfThingsService.cs" />
     <Compile Include="Interfaces\IWateringService.cs" />
+    <Compile Include="Services\NullIoTService.cs" />
     <Compile Include="Services\TinamousMqttService.cs" />
     <Compile Include="Services\MeasurementService.cs" />
     <Compile Include="Services\TinamousService.cs" />
