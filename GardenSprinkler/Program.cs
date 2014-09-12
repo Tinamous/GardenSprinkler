@@ -21,8 +21,8 @@ namespace GardenSprinkler
 
             //var tinamousService = new TinamousService();
             _tinamousService = new TinamousMqttService();
-            _tinamousService = new NullIoTService();
-            //_tinamousService.WaterRequested += tinamousService_WaterRequested;
+            //_tinamousService = new NullIoTService();
+            _tinamousService.WaterRequested += tinamousService_WaterRequested;
 
             SetupEthernet();
 
